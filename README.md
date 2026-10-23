@@ -34,3 +34,9 @@ Bu sürümde kullanıcı girişi yoktur. Kişisel iş kayıtları içeren bu uyg
 `web/data.json` ve Excel dosyaları özel iş kayıtları içerdiği için Git'e dahil edilmez. Kod bu veri dosyası olmadan açılır ve veri beklediğini gösterir; temsili şantiye veya rakamlar üretmez. Mevcut bulut ortamındaki gerçek veriler korunur.
 
 Statik barındırma için kök dizin `web`, derleme komutu yoktur. GitHub'a kod yüklemek siteyi yayınlamaz. İş verileri bağlanmadan ve erişim kontrolü belirlenmeden canlıya kişisel veri eklemeyin.
+
+## Tarayıcıda özel Excel açma
+
+Üst menüdeki **Excel seç** düğmesi ile `.xlsx` dosyası seçilebilir (en fazla 10 MB). Dosya, yerel olarak paketlenmiş SheetJS CE 0.18.5 ile tarayıcıda okunur; ağ üzerinden gönderilmez, localStorage veya çerezlere kaydedilmez. Sayfa yeniden yüklenince dosya yeniden seçilir. Yenile simgesi açık sekmedeki veriyi korur. Google E-Tablolar ile canlı bağlantı değildir; diğer kullanıcılar seçilen dosyayı göremez. Paket lisansı web/vendor/XLSX-LICENSE.txt içindedir.
+
+Tarayıcı aktarım kodu gerçek çalışma kitabıyla Node altında kontrol edildi: 17 şantiye, 73 not, özet sırası ve Kartal parsel hücresinin doğruluğu; boş çalışma kitabının reddi. Tam tarayıcı etkileşim testi henüz yapılmadı.
