@@ -16,7 +16,7 @@ function workbookData(book, filename) {
  }
  if(!sites.length)throw Error('Şantiye sekmeleri bulunamadı. SORUMLU ve İŞ sütunlarını içeren İş Takip Excel dosyasını seçin.');
  const overview=book.Sheets['Tüm İşler'];
- if(overview){const order=new Map();for(let c=2;c<37;c+=2){const a=clean(overview[XLSX.utils.encode_cell({r:1,c})]?.v),p=clean(overview[XLSX.utils.encode_cell({r:2,c})]?.v);order.set(a+'|'+p,c)}sites.sort((a,b)=>(order.get(a.ada+'|'+a.parcel)??999)-(order.get(b.ada+'|'+b.parcel)??999))}
+ if(overview){const order=new Map();for(let c=2;c<37;c+=2){const a=clean(overview[XLSX.utils.encode_cell({r:1,c})]?.v),p=clean(overview[XLSX.utils.encode_cell({r:2,c})]?.v);order.set(a+'|'+p,c)}for(const site of sites){const col=order.get(site.ada+'|'+site.parcel);if(col!=null)site.inspection=clean(overview[XLSX.utils.encode_cell({r:4,c:col})]?.v);}sites.sort((a,b)=>(order.get(a.ada+'|'+a.parcel)??999)-(order.get(b.ada+'|'+b.parcel)??999))}
  return {source:filename,importedAt:new Date().toISOString(),sites};
 }
 window.workbookData=workbookData;

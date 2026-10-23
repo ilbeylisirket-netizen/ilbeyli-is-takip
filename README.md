@@ -40,3 +40,13 @@ Statik barındırma için kök dizin `web`, derleme komutu yoktur. GitHub'a kod 
 Üst menüdeki **Excel seç** düğmesi ile `.xlsx` dosyası seçilebilir (en fazla 10 MB). Dosya, yerel olarak paketlenmiş SheetJS CE 0.18.5 ile tarayıcıda okunur; ağ üzerinden gönderilmez, localStorage veya çerezlere kaydedilmez. Sayfa yeniden yüklenince dosya yeniden seçilir. Yenile simgesi açık sekmedeki veriyi korur. Google E-Tablolar ile canlı bağlantı değildir; diğer kullanıcılar seçilen dosyayı göremez. Paket lisansı web/vendor/XLSX-LICENSE.txt içindedir.
 
 Tarayıcı aktarım kodu gerçek çalışma kitabıyla Node altında kontrol edildi: 17 şantiye, 73 not, özet sırası ve Kartal parsel hücresinin doğruluğu; boş çalışma kitabının reddi. Tam tarayıcı etkileşim testi henüz yapılmadı.
+
+## Sabit şantiye kontrol listesi ve bilgi kartı
+
+Şantiye detayında elektrik, su, doğalgaz, ruhsat, iş yeri teslim tutanağı, %20/%40/%60/%80/%95/%100 seviye onayları ve iskân kutuları vardır. Kutu durumları `site.milestones` içinde görevlerden bağımsız saklanır; boş kutu doğrulanmamış, işaretlenen kutu tamamlanmış demektir. Görev düzenlerken bir kontrol maddesi seçilip durum Tamamlandı yapılırsa ilgili kutu işaretlenir. Görevin yeniden açılması kutuyu geri almaz; yetkili kutuyu ayrıca değiştirebilir. Tamamlanan işler aktif listeden ayrılır, şantiye detayındaki arşivde kalır. Ekip işleri ekranında Tamamlananları göster seçeneği vardır.
+
+Şantiye kartı ve detayı yapı denetim firması, mimarlık ofisi, toplam/planlanan kat, mevcut kat ve güncel aşamayı gösterir. Yetkili Şantiye bilgilerini düzenle düğmesini kullanabilir. Kaynaktaki çalışılan kişi alanı mimarlık ofisi diye varsayılmaz. Excel özetindeki 9 yapı denetim firması eski kayıtlar için eşleşen ilçe/ada/parsel üzerinden tamamlanır; elle girilmiş değerler değiştirilmez. Diğer alanlar eksikse Belirtilmemiş gösterilir. Hiçbir aşama serbest notlardan otomatik tamamlanmış sayılmaz.
+
+Bütün değişiklikler Değişiklikleri kaydet düğmesiyle ortak veritabanına aktarılır. Şantiye detayında da Kaydet düğmesi vardır. Yeni tablo/SQL değişikliği gerekmez. Excel tekrar seçildiğinde aynı ilçe/ada/parseldeki sabit kontrol listesi ve şantiye bilgileri korunur (görev listesi dosyadan yenilenir). Yedek indir düğmesi görevlerin yanı sıra kontrol kutuları ve şantiye bilgilerini de içeren JSON dosyası üretir. Bu yedek için otomatik geri yükleme arayüzü henüz yoktur.
+
+UI testleri tamamlanan işin arşivlenmesini, bağlantılı kontrol kutusunun işaretlenmesini, görev kaldırıldığında kutunun korunmasını, site bilgilerinin kaydedilmesini, Excel yenilemede bilgi korumayı ve ziyaretçinin salt okuma yetkisini kapsar.

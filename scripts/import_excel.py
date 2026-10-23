@@ -23,6 +23,10 @@ def convert(path):
     order={}
     for col in range(3,overview.max_column+1,2):
         order[(clean(overview.cell(2,col).value),clean(overview.cell(3,col).value))]=col
+    for site in sites:
+        col = order.get((site['ada'],site['parcel']))
+        if col is not None:
+            site['inspection'] = clean(overview.cell(5,col).value)
     sites.sort(key=lambda s:order.get((s['ada'],s['parcel']),999))
     return dict(source=Path(path).name, importedAt=datetime.datetime.now(datetime.timezone.utc).isoformat(), sites=sites)
 if __name__=='__main__':

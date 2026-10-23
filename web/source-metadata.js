@@ -1,0 +1,2 @@
+// Inspection companies from the user-supplied Excel overview.
+window.SOURCE_INSPECTIONS={"kartal|10953|11": "TARGET YAPI DENETİM", "kağıthane (talatpaşa)|4444|9": "MİMTEK YAPI DENETİM", "sultangazi (ismetpaşa)|11|9": "RADİKAL YAPI DENETİM", "sultangazi (ismetpaşa)|11|1": "CİVAL YAPI DENETİM", "kağıthane (şirintepe)|5202|12": "GÜVEN YAPI DENETİM", "fatih|2112|230": "ŞAN YAPI DENETİM", "güngören|700 (0)|9 (412)": "GÜNEŞ YAPI DENETİM", "bağcılar|1169|10 (2, 3)": "BİLGİLİ YAPI DENETİM", "sultangazi|11|15": "TOPKAPI YAPI DENETİM"};
