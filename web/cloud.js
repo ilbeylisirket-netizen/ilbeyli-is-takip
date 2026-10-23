@@ -5,7 +5,7 @@ const Cloud = (()=>{
  function store(s){session=s;try{if(s)sessionStorage.setItem('ilbeyli-session',JSON.stringify(s));else sessionStorage.removeItem('ilbeyli-session')}catch{}}
  async function request(path,options={},token=true){
   if(token&&session&&session.expires_at*1000<Date.now()+30000)await refresh();
-  const r=await fetch(base+path,{...options,headers:{apikey:cfg.key,'Content-Type':'application/json',Authorization:'Bearer '+(token&&session?session.access_token:cfg.key),...options.headers}});
+  const r=await fetch(base+path,{...options,headers:{apikey:cfg.key,'Content-Type':'application/json',...(token&&session?{Authorization:'Bearer '+session.access_token}:cfg.key.startsWith('eyJ')?{Authorization:'Bearer '+cfg.key}:{}),...options.headers}});
   const text=await r.text();let body;try{body=JSON.parse(text)}catch{body={message:text}}
   if(!r.ok){const err=new Error(body.message||body.msg||body.error_description||'Bağlantı kurulamadı');err.code=body.code;err.status=r.status;throw err}return body;
  }
