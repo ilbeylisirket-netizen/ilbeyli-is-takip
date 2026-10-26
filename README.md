@@ -72,3 +72,13 @@ Tamamlanan işlerde Tekrar listeye al düğmesi bulunur. Geri alınan iş Devam 
 ## Beton programı
 
 Çalışma alanı menüsündeki Beton programı bütün dökümleri gösterir. Şantiye detayındaki Beton programı bölümü ise ilçe/ada/parsel ile kesin eşleşen kayıtları gösterir. Tablo, tarih/saat, miktar, sınıf, 7/28 günlük rapor tarihleri, kaynak notları ve tamamlanma sütununu korur. İlk kurulum için supabase/concrete.sql gerekir; Google E-Tablolar otomatik bağlantısının ve Excel ilk aktarımının adımları integrations/README.md içindedir. Mevcut iş kayıtlarından ayrı tabloda saklanır; ana iş listesini/kat bilgisini/kontrol kutularını otomatik değiştirmez. Otomatik bağlantı kullanıcı hesabında Apps Script tetikleyicileri kurulmadan aktif değildir.
+
+## Günlük özet
+
+Ana sayfada ve Günlük özet menüsünde seçilen günün işleri, gecikenler/engeller, beton döküm planları, rapor takibi, tamamlanma bildirimleri, sonraki 7 gün ve eksik bilgiler gösterilir. Bu özet mevcut kayıtlardan yerel olarak hesaplanır; harici yapay zekâ servisine veya e-postaya veri gönderilmez. Gün sınırı Europe/Istanbul saat dilimidir. Tarih, bildirim türü ve şantiye/kişi aramasıyla süzülebilir. Bildirimlerin şantiye bağlantıları detayı açar. Ana sayfa filtreleri özetin kapsamını daraltmaz; özet kendi filtresini kullanır. Açık sayfada tarih/bildirimler dakikada bir güncellenir.
+
+İş son tarihleri yalnızca ayrı due alanından alınır; serbest notlardan tarih tahmin edilmez. Yeni tamamlamalarda completedAt kaydedilir, tekrar aktif yapılınca kaldırılır; eski kayıtlarda zaman yoksa bugünkü tamamlananlara dahil edilmez. Sabit kutular için mevcut updatedAt kullanılır. Arşivdeki şantiyeler ve işleri günlük hatırlatmalara dahil edilmez. Eksik tarih, sorumlu ve şantiye bilgileri açıkça belirtilir. Kaydedilmemiş taslaklar özete dahilse kutuda açıklanır.
+
+Beton rapor hatırlatmaları döküldü işaretli kayıtların rapor tarihlerine göre hesaplanır. Beklenen tarihin gelmesi sonucun çıktığı/olumlu olduğu anlamına gelmez. Beton düzenleme formunda 7 günlük rapor alındı / 28 günlük rapor alındı seçenekleri vardır; işaretlenince hatırlatma kalkar ve alındı olarak işaretlenme zamanı tutulur. Rapor içerik değerlendirmesi yapılmaz. NUMUNE ALINMADI gibi açıklamalar hatalı tarih sayılıp vade üretilmez. İşaretli olmayan geçmiş döküm için sadece plan tarihinin geçtiği ve tamamlanma teyidi olmadığı söylenir.
+
+`node tests/daily.cjs` günlük özetin tarih sınırları, arşiv hariç tutma, eksik tarih, eski tamamlanmış kayıt, rapor alınma işareti ve özel rapor açıklamaları davranışını doğrular. UI testleri yeni tamamlanma/alınma zamanlarının kayıt yüküne dahil olmasını da kontrol eder. Ek SQL değişikliği gerekmez.
