@@ -11,3 +11,5 @@ form label{display:block;margin:15px 0;font-size:12px}form input,form select,for
 .archive-action{margin:8px;color:#775339}.archive-notice{padding:14px;background:#f4ecd9;border-radius:8px;line-height:1.6}#site-form-error{color:#a33}
 
 .task>button{display:inline-block;margin-right:8px}.delete-task{color:#984438}
+
+.save-feedback{padding:16px;margin:0 25px 20px 0;background:#e3f2d9;border:1px solid #a8c79a;border-radius:10px;color:#245735;font-size:15px;font-weight:600}.save-feedback:focus{outline:2px solid #638757;outline-offset:2px}.save-error{color:#a33!important}
