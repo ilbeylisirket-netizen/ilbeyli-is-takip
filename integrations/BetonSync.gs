@@ -28,8 +28,9 @@ function syncBeton(){
   fields.forEach((key,i)=>{const c=columns[i],v=raw[row][c];item[key]=key==='completed'?(v===true?true:v===false?false:null):(['date','report7','report28'].includes(key)&&v instanceof Date?Utilities.formatDate(v,tz,'yyyy-MM-dd'):String(display[row][c]).trim());});rows.push(item);
  }
  // Read the current database too, so a manual import cannot permanently block resync.
- const response=betonRequest('/rest/v1/concrete_program?id=eq.1&select=version,rows',null);
+ const response=betonRequest('/rest/v1/concrete_program?id=eq.1&select=version,rows,source',null);
  if(!response[0])throw new Error('Beton tablosu kurulmamış.');
+ if(String(response[0].source||'').startsWith('İş takip sitesi'))return; // Site is now the authoritative editor.
  const canonical=items=>JSON.stringify(items.map(r=>fields.map(k=>r[k]).concat([r.sourceRow])));
  if(canonical(response[0].rows)===canonical(rows))return;
  betonRequest('/rest/v1/rpc/sync_concrete',{sync_token:token,expected_version:response[0].version,new_rows:rows});
