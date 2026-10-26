@@ -27,3 +27,5 @@ form label{display:block;margin:15px 0;font-size:12px}form input,form select,for
 .card-stage.stage-planned{background:#fff0dc}.card-stage.stage-done{background:#e3f1dc}.card-stage small{font-size:10px;line-height:1.6;color:#65756a}.card-stage .last-pour{border-top:1px solid #d6dfd2;padding-top:6px;margin-top:3px}
 
 .card-stage,.card-stage.stage-planned,.card-stage.stage-done{background:#f0f0f0}
+
+.edit-site-primary{background:var(--green);color:white;margin:0 0 16px}.site-card-actions{display:flex;align-items:flex-end;flex-direction:column;gap:8px}.site-card-actions [data-edit-site]{font-weight:600;color:#2b6347}.edit-login-hint{padding:12px;background:#edf2e8;border-radius:8px;font-size:12px;line-height:1.7}
