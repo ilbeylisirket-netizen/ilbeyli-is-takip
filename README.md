@@ -58,3 +58,11 @@ Yetkili kullanıcı üstteki Yeni şantiye ekle düğmesiyle ilçe/ada/parsel ve
 Şantiye detayındaki Şantiyeyi arşivle düğmesi onay sorar. Arşiv fiziksel silme değildir: işler, kontrol kutuları ve bilgiler saklanır; aktif kartlar, iş listeleri ve ana sayfa toplamlarından çıkar. Soldaki Arşivlenen şantiyeler üzerinden görüntülenir ve yetkili tarafından Ana listeye geri al düğmesiyle geri alınabilir. Arşivdeki şantiye geri alınana kadar düzenlenmez. Ekleme, arşivleme ve geri alma işlemleri Değişiklikleri kaydet ile ortak kayda aktarılır. Yeni SQL kurulumu gerekmez. Kullanıcı ayrıca kaydetmeden canlı kayıtlar otomatik arşivlenmez.
 
 Excel yenilemesi arşiv durumunu korur. Dosyada artık bulunmayan arşivlenmiş şantiyeler ve sitede oluşturulmuş şantiyeler de saklanır. Yedek indir bütün şantiyeleri, arşiv dahil, içerir. UI testleri ekleme/kalıcı kayıt, arşivleme/geri alma, iptal, tekrarlanan kayıt kontrolü ve salt okuma yetkisini kapsar.
+
+## Kontrol kutularında konum ve görev ilişkilendirmesi
+
+Kontrol kutusuna basıldığında detay penceresi kapatılıp açılmaz; checkbox düğümü, odağı ve kaydırma konumu korunur. Diğer detay güncellemelerinde de kaydırma konumu ve tamamlanan işler bölümünün açık/kapalı durumu korunur.
+
+Görev durumunu Tamamlandı yapmak veya hızlı Tamamla düğmesini kullanmak, ilişkilendirilmiş sabit maddeyi tamamlandı olarak işaretler. Sil düğmesi onay sorar; ilişkili madde varsa bu onay metninde açıkça belirtilir. Onaydan sonra görev listeden kaldırılır, site.deletedTasks içinde geçmiş kopyası tutulur, sabit kutu işaretli kalır. Silme iptal edilirse görev ve kutu değişmez. Bağlantısız görev tamamlamak/silmek diğer kutulara dokunmaz. Silinen görevler için ayrı geri yükleme ekranı yoktur; tam JSON yedeğinde bulunurlar. Serbest nottan tamamlanma tahmin edilmez; görev durumu veya kullanıcının Tamamla/Sil işlemi esas alınır. Ortak kalıcılık için Değişiklikleri kaydet kullanılır.
+
+DOM testleri kutu düğümünün/odağın/scrollTop değerinin korunmasını, hızlı tamamlamayı, silmenin iptalini ve onayını, bağlantılı kutuların ve geçmişin ortak kayıt yüküne dahil olmasını doğrular. Gerçek tarayıcıda görsel kaydırma testi ayrıca yapılmamıştır.

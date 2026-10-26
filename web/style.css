@@ -9,3 +9,5 @@ form label{display:block;margin:15px 0;font-size:12px}form input,form select,for
 .card h3.site-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 10px;line-height:1.5}.site-parcel{font-size:12px;font-weight:400;color:#587169;white-space:nowrap}
 
 .archive-action{margin:8px;color:#775339}.archive-notice{padding:14px;background:#f4ecd9;border-radius:8px;line-height:1.6}#site-form-error{color:#a33}
+
+.task>button{display:inline-block;margin-right:8px}.delete-task{color:#984438}
