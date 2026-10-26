@@ -68,3 +68,7 @@ Görev durumunu Tamamlandı yapmak veya hızlı Tamamla düğmesini kullanmak, i
 DOM testleri kutu düğümünün/odağın/scrollTop değerinin korunmasını, hızlı tamamlamayı, silmenin iptalini ve onayını, bağlantılı kutuların ve geçmişin ortak kayıt yüküne dahil olmasını doğrular. Gerçek tarayıcıda görsel kaydırma testi ayrıca yapılmamıştır.
 
 Tamamlanan işlerde Tekrar listeye al düğmesi bulunur. Geri alınan iş Devam ediyor durumuna geçer ve kendi ilişkili sabit kutusu Tamamlanmadı olarak güncellenir. Ortak kayda kalıcı aktarım için Değişiklikleri kaydet gerekir. Başka kutulara dokunulmaz. Hızlı geri alma ve düzenleme formundan yeniden açma, kutu sıfırlaması ve kayıt yükü testlerle doğrulanır.
+
+## Beton programı
+
+Çalışma alanı menüsündeki Beton programı bütün dökümleri gösterir. Şantiye detayındaki Beton programı bölümü ise ilçe/ada/parsel ile kesin eşleşen kayıtları gösterir. Tablo, tarih/saat, miktar, sınıf, 7/28 günlük rapor tarihleri, kaynak notları ve tamamlanma sütununu korur. İlk kurulum için supabase/concrete.sql gerekir; Google E-Tablolar otomatik bağlantısının ve Excel ilk aktarımının adımları integrations/README.md içindedir. Mevcut iş kayıtlarından ayrı tabloda saklanır; ana iş listesini/kat bilgisini/kontrol kutularını otomatik değiştirmez. Otomatik bağlantı kullanıcı hesabında Apps Script tetikleyicileri kurulmadan aktif değildir.
