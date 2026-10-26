@@ -50,3 +50,11 @@ Tarayıcı aktarım kodu gerçek çalışma kitabıyla Node altında kontrol edi
 Bütün değişiklikler Değişiklikleri kaydet düğmesiyle ortak veritabanına aktarılır. Şantiye detayında da Kaydet düğmesi vardır. Yeni tablo/SQL değişikliği gerekmez. Excel tekrar seçildiğinde aynı ilçe/ada/parseldeki sabit kontrol listesi ve şantiye bilgileri korunur (görev listesi dosyadan yenilenir). Yedek indir düğmesi görevlerin yanı sıra kontrol kutuları ve şantiye bilgilerini de içeren JSON dosyası üretir. Bu yedek için otomatik geri yükleme arayüzü henüz yoktur.
 
 UI testleri tamamlanan işin arşivlenmesini, bağlantılı kontrol kutusunun işaretlenmesini, görev kaldırıldığında kutunun korunmasını, site bilgilerinin kaydedilmesini, Excel yenilemede bilgi korumayı ve ziyaretçinin salt okuma yetkisini kapsar.
+
+## Yeni şantiye ve arşiv
+
+Yetkili kullanıcı üstteki Yeni şantiye ekle düğmesiyle ilçe/ada/parsel ve diğer bilgileri girebilir. Ada 0 geçerlidir. Aynı ilçe/ada/parsel için yinelenen kayıt engellenir; arşivde mevcutsa geri alma önerilir. Yeni şantiye boş iş listesi ve kontrol listesiyle açılır.
+
+Şantiye detayındaki Şantiyeyi arşivle düğmesi onay sorar. Arşiv fiziksel silme değildir: işler, kontrol kutuları ve bilgiler saklanır; aktif kartlar, iş listeleri ve ana sayfa toplamlarından çıkar. Soldaki Arşivlenen şantiyeler üzerinden görüntülenir ve yetkili tarafından Ana listeye geri al düğmesiyle geri alınabilir. Arşivdeki şantiye geri alınana kadar düzenlenmez. Ekleme, arşivleme ve geri alma işlemleri Değişiklikleri kaydet ile ortak kayda aktarılır. Yeni SQL kurulumu gerekmez. Kullanıcı ayrıca kaydetmeden canlı kayıtlar otomatik arşivlenmez.
+
+Excel yenilemesi arşiv durumunu korur. Dosyada artık bulunmayan arşivlenmiş şantiyeler ve sitede oluşturulmuş şantiyeler de saklanır. Yedek indir bütün şantiyeleri, arşiv dahil, içerir. UI testleri ekleme/kalıcı kayıt, arşivleme/geri alma, iptal, tekrarlanan kayıt kontrolü ve salt okuma yetkisini kapsar.
