@@ -75,7 +75,7 @@ Tamamlanan işlerde Tekrar listeye al düğmesi bulunur. Geri alınan iş Devam 
 
 ## Günlük özet
 
-Ana sayfada ve Günlük özet menüsünde seçilen günün işleri, gecikenler/engeller, beton döküm planları, rapor takibi, tamamlanma bildirimleri, sonraki 7 gün ve eksik bilgiler gösterilir. Bu özet mevcut kayıtlardan yerel olarak hesaplanır; harici yapay zekâ servisine veya e-postaya veri gönderilmez. Gün sınırı Europe/Istanbul saat dilimidir. Tarih, bildirim türü ve şantiye/kişi aramasıyla süzülebilir. Bildirimlerin şantiye bağlantıları detayı açar. Ana sayfa filtreleri özetin kapsamını daraltmaz; özet kendi filtresini kullanır. Açık sayfada tarih/bildirimler dakikada bir güncellenir.
+Yalnızca Günlük özet menüsünde seçilen günün işleri, gecikenler/engeller, beton döküm planları, rapor takibi, tamamlanma bildirimleri, sonraki 7 gün ve eksik bilgiler gösterilir. Bu özet mevcut kayıtlardan yerel olarak hesaplanır; harici yapay zekâ servisine veya e-postaya veri gönderilmez. Gün sınırı Europe/Istanbul saat dilimidir. Tarih, bildirim türü ve şantiye/kişi aramasıyla süzülebilir. Bildirimlerin şantiye bağlantıları detayı açar. Ana sayfa filtreleri özetin kapsamını daraltmaz; özet kendi filtresini kullanır. Açık sayfada tarih/bildirimler dakikada bir güncellenir.
 
 İş son tarihleri yalnızca ayrı due alanından alınır; serbest notlardan tarih tahmin edilmez. Yeni tamamlamalarda completedAt kaydedilir, tekrar aktif yapılınca kaldırılır; eski kayıtlarda zaman yoksa bugünkü tamamlananlara dahil edilmez. Sabit kutular için mevcut updatedAt kullanılır. Arşivdeki şantiyeler ve işleri günlük hatırlatmalara dahil edilmez. Eksik tarih, sorumlu ve şantiye bilgileri açıkça belirtilir. Kaydedilmemiş taslaklar özete dahilse kutuda açıklanır.
 
