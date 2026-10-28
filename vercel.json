@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://eva-sirket-hafizasi-20261026.doganilbeyli.chatgpt.site/santiyeler/",
+      "permanent": false
+    },
+    {
+      "source": "/index.html",
+      "destination": "https://eva-sirket-hafizasi-20261026.doganilbeyli.chatgpt.site/santiyeler/",
+      "permanent": false
+    }
+  ]
+}
